@@ -1,26 +1,21 @@
 import cv2
+import time
 
 
-class Capture():
-    def __init__(self, id_camera):
-        self.id_camera = id_camera
+def get_frame(id_camera):
+    cap = cv2.VideoCapture(id_camera)
+    time.sleep(0.5)
+    for _ in range(5):
+        cap.grab()
 
-    def initialize_camera(self):
-        self.cap = cv2.VideoCapture(self.id_camera)
-
-    def get_frame(self):
-        self.initialize_camera()
-        for _ in range(5):
-            self.cap.grab()
-
-        ret, frame = self.cap.read()
+        ret, frame = cap.read()
 
         if ret:
-            self.release()
+            cap.release()
             return frame
         else:
             print("None: ret")
             return frame
 
-    def release(self):
-        self.cap.release()
+
+
