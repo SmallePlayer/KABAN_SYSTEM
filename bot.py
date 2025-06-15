@@ -18,11 +18,10 @@ async def start(message: types.Message):
     builder = ReplyKeyboardBuilder()
     logger.info("Command start")
 
-    for i in range(0, get_len_data()):
+    for i in range(0, get_printers_count()):
         builder.add(KeyboardButton(text=f"Принтер {i}"))
 
     builder.adjust(3, 3, 3)
-    
 
     await message.answer("Выберете принтер", reply_markup=builder.as_markup(resize_keyboard=True))
 
@@ -30,7 +29,7 @@ async def start(message: types.Message):
 async def status_printr_1(message: types.Message):
     id = message.text.split()[1]
 
-    photo_name = create_photo(id)
+    photo_name = create_photo(int(id))
     frame = FSInputFile(photo_name)
 
     builder = ReplyKeyboardBuilder()
