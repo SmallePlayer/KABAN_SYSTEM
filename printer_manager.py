@@ -1,5 +1,5 @@
 import sqlite3
-from db_test import add_printer, get_all_printers, delete_printer, update_printer, update_printer_full
+from db.db import add_printer, get_all_printers, delete_printer, update_printer, update_printer_full
 
 def print_menu():
     print("\n--- Printer Management System ---")
@@ -40,11 +40,9 @@ def delete_printer_console():
     else:
         print("Printer not found or deletion failed")
 
-# НОВАЯ ФУНКЦИЯ: Редактирование принтера
 def update_printer_console():
     printer_id = input("Enter printer ID to update: ").strip()
     
-    # Проверяем существование принтера
     printers = get_all_printers()
     printer_exists = any(p['id'] == printer_id for p in printers)
     

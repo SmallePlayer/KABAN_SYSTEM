@@ -3,7 +3,6 @@ import struct
 import time
 
     
-
 def send_comand(state, number):
     try:
         ser = serial.Serial('/dev/ttyUSB0', 115200)

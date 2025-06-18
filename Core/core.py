@@ -1,17 +1,13 @@
-from capture import *
-from db_print import *
-from db_test import *
-from config import *
+from Core.capture import *
+from db.db import *
+from Core.config import *
 from request_printer import *
 from logger_config import setup_logger
 from uart_rele import *
 import logging
 import time
 import cv2
-import json 
 import os
-
-
 
 
 def get_stat_print(id):
@@ -28,7 +24,8 @@ def create_photo(id):
     frame = get_frame(id_camera=int(printer[3]))
     time.sleep(0.2)
 
-    photo_path = os.path.join("photo", f"photo_{printer[1]}.jpg")
+    photo_path = os.path.join("/home/pes/kaban_project/kaban_system2/photo",
+                f"photo_{printer[1]}.jpg")
 
     if frame is None:
         return
