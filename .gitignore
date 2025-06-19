@@ -1,0 +1,49 @@
+# Файлы окружения
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Кэш интерпретатора Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Пакеты Python
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+
+# Установочные файлы
+*.egg
+*.whl
+
+# Файлы IDE
+.idea/
+.vscode/
+*.swp
+*.sublime-*
+
+# Файлы операционных систем
+.DS_Store
+Thumbs.db
+
+# Файлы тестов и покрытия
+.coverage
+htmlcov/
+.coverage.*
+.cache
+.pytest_cache/
+test-results.xml
+
+# Jupyter ноутбуки
+.ipynb_checkpoints/
+
+# Файлы логов
+*.log
+logs/
+
+# Файлы конфигурации
+setup.cfg
