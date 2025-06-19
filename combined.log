@@ -2628,3 +2628,410 @@ TypeError: delete_printer() missing 1 required positional argument: 'state'
 2025-06-17 19:31:03 [WARNING] aiogram.dispatcher: Received SIGTERM signal
 2025-06-17 19:31:03 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
 2025-06-17 19:31:03 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:19:20 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:19:20 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:19:27 [INFO] aiogram.event: Update id=530519535 is handled. Duration 203 ms by bot id=5838259761
+2025-06-19 12:19:29 [INFO] aiogram.event: Update id=530519536 is handled. Duration 135 ms by bot id=5838259761
+2025-06-19 12:19:30 [INFO] aiogram.event: Update id=530519537 is handled. Duration 203 ms by bot id=5838259761
+2025-06-19 12:19:31 [INFO] aiogram.event: Update id=530519538 is handled. Duration 266 ms by bot id=5838259761
+2025-06-19 12:19:39 [INFO] aiogram.event: Update id=530519539 is handled. Duration 109 ms by bot id=5838259761
+2025-06-19 12:19:41 [INFO] aiogram.event: Update id=530519540 is handled. Duration 144 ms by bot id=5838259761
+2025-06-19 12:19:46 [INFO] aiogram.event: Update id=530519541 is not handled. Duration 5 ms by bot id=5838259761
+2025-06-19 12:19:54 [INFO] aiogram.event: Update id=530519542 is handled. Duration 110 ms by bot id=5838259761
+2025-06-19 12:19:56 [INFO] aiogram.event: Update id=530519543 is handled. Duration 203 ms by bot id=5838259761
+2025-06-19 12:21:59 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:21:59 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:21:59 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:22:05 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:22:05 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:22:06 [INFO] aiogram.event: Update id=530519544 is handled. Duration 272 ms by bot id=5838259761
+2025-06-19 12:22:07 [INFO] aiogram.event: Update id=530519545 is handled. Duration 101 ms by bot id=5838259761
+2025-06-19 12:22:08 [INFO] aiogram.event: Update id=530519546 is handled. Duration 76 ms by bot id=5838259761
+2025-06-19 12:22:11 [INFO] aiogram.event: Update id=530519547 is handled. Duration 142 ms by bot id=5838259761
+2025-06-19 12:22:15 [INFO] aiogram.event: Update id=530519548 is handled. Duration 72 ms by bot id=5838259761
+2025-06-19 12:22:41 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:22:41 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:22:41 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:22:46 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:22:46 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:22:53 [INFO] aiogram.event: Update id=530519549 is handled. Duration 231 ms by bot id=5838259761
+2025-06-19 12:22:54 [INFO] aiogram.event: Update id=530519550 is handled. Duration 124 ms by bot id=5838259761
+2025-06-19 12:22:55 [INFO] aiogram.event: Update id=530519551 is handled. Duration 100 ms by bot id=5838259761
+2025-06-19 12:22:56 [INFO] aiogram.event: Update id=530519552 is handled. Duration 100 ms by bot id=5838259761
+2025-06-19 12:22:58 [INFO] aiogram.event: Update id=530519553 is not handled. Duration 3 ms by bot id=5838259761
+2025-06-19 12:22:58 [ERROR] aiogram.event: Cause exception while process update id=530519553 by bot id=5838259761
+ValidationError: 4 validation errors for SendMessage
+entities
+  Input should be a valid list [type=list_type, input_value='2. ip\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+link_preview_options.LinkPreviewOptions
+  Input should be a valid dictionary or instance of LinkPreviewOptions [type=model_type, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+link_preview_options.is-instance[Default]
+  Input should be an instance of Default [type=is_instance_of, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+disable_notification
+  Input should be a valid boolean, unable to interpret input [type=bool_parsing, input_value='4. rele pin', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/bool_parsing
+Traceback (most recent call last):
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+  File "/home/pes/kaban_project/kaban_system2/bot/db_bot/db_bot_meneger.py", line 43, in write_id
+    await message.answer("Введите то что хотите поменять: \n",
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/types/message.py", line 2074, in answer
+    return SendMessage(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 4 validation errors for SendMessage
+entities
+  Input should be a valid list [type=list_type, input_value='2. ip\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+link_preview_options.LinkPreviewOptions
+  Input should be a valid dictionary or instance of LinkPreviewOptions [type=model_type, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+link_preview_options.is-instance[Default]
+  Input should be an instance of Default [type=is_instance_of, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+disable_notification
+  Input should be a valid boolean, unable to interpret input [type=bool_parsing, input_value='4. rele pin', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/bool_parsing
+2025-06-19 12:23:05 [INFO] aiogram.event: Update id=530519554 is not handled. Duration 3 ms by bot id=5838259761
+2025-06-19 12:23:05 [ERROR] aiogram.event: Cause exception while process update id=530519554 by bot id=5838259761
+ValidationError: 4 validation errors for SendMessage
+entities
+  Input should be a valid list [type=list_type, input_value='2. ip\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+link_preview_options.LinkPreviewOptions
+  Input should be a valid dictionary or instance of LinkPreviewOptions [type=model_type, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+link_preview_options.is-instance[Default]
+  Input should be an instance of Default [type=is_instance_of, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+disable_notification
+  Input should be a valid boolean, unable to interpret input [type=bool_parsing, input_value='4. rele pin', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/bool_parsing
+Traceback (most recent call last):
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+  File "/home/pes/kaban_project/kaban_system2/bot/db_bot/db_bot_meneger.py", line 53, in write_id
+    await message.answer("Введите то что хотите поменять: \n",
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/types/message.py", line 2074, in answer
+    return SendMessage(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 4 validation errors for SendMessage
+entities
+  Input should be a valid list [type=list_type, input_value='2. ip\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+link_preview_options.LinkPreviewOptions
+  Input should be a valid dictionary or instance of LinkPreviewOptions [type=model_type, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+link_preview_options.is-instance[Default]
+  Input should be an instance of Default [type=is_instance_of, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+disable_notification
+  Input should be a valid boolean, unable to interpret input [type=bool_parsing, input_value='4. rele pin', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/bool_parsing
+2025-06-19 12:23:08 [INFO] aiogram.event: Update id=530519555 is handled. Duration 69 ms by bot id=5838259761
+2025-06-19 12:23:24 [INFO] aiogram.event: Update id=530519556 is handled. Duration 91 ms by bot id=5838259761
+2025-06-19 12:23:26 [INFO] aiogram.event: Update id=530519557 is handled. Duration 174 ms by bot id=5838259761
+2025-06-19 12:23:31 [INFO] aiogram.event: Update id=530519558 is not handled. Duration 2 ms by bot id=5838259761
+2025-06-19 12:23:31 [ERROR] aiogram.event: Cause exception while process update id=530519558 by bot id=5838259761
+ValidationError: 4 validation errors for SendMessage
+entities
+  Input should be a valid list [type=list_type, input_value='2. ip\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+link_preview_options.LinkPreviewOptions
+  Input should be a valid dictionary or instance of LinkPreviewOptions [type=model_type, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+link_preview_options.is-instance[Default]
+  Input should be an instance of Default [type=is_instance_of, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+disable_notification
+  Input should be a valid boolean, unable to interpret input [type=bool_parsing, input_value='4. rele pin', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/bool_parsing
+Traceback (most recent call last):
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+  File "/home/pes/kaban_project/kaban_system2/bot/db_bot/db_bot_meneger.py", line 43, in write_id
+    await message.answer("Введите то что хотите поменять: \n",
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/aiogram/types/message.py", line 2074, in answer
+    return SendMessage(
+  File "/home/pes/kaban_project/kaban_system2/venv/lib/python3.10/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 4 validation errors for SendMessage
+entities
+  Input should be a valid list [type=list_type, input_value='2. ip\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/list_type
+link_preview_options.LinkPreviewOptions
+  Input should be a valid dictionary or instance of LinkPreviewOptions [type=model_type, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/model_type
+link_preview_options.is-instance[Default]
+  Input should be an instance of Default [type=is_instance_of, input_value='3. camera index\n', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/is_instance_of
+disable_notification
+  Input should be a valid boolean, unable to interpret input [type=bool_parsing, input_value='4. rele pin', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/bool_parsing
+2025-06-19 12:24:16 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:24:16 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:24:16 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:24:21 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:24:21 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:24:25 [INFO] aiogram.event: Update id=530519560 is handled. Duration 209 ms by bot id=5838259761
+2025-06-19 12:24:26 [INFO] aiogram.event: Update id=530519561 is handled. Duration 71 ms by bot id=5838259761
+2025-06-19 12:24:27 [INFO] aiogram.event: Update id=530519562 is handled. Duration 95 ms by bot id=5838259761
+2025-06-19 12:24:29 [INFO] aiogram.event: Update id=530519563 is handled. Duration 518 ms by bot id=5838259761
+2025-06-19 12:24:31 [INFO] aiogram.event: Update id=530519564 is handled. Duration 98 ms by bot id=5838259761
+2025-06-19 12:24:35 [INFO] aiogram.event: Update id=530519565 is handled. Duration 19 ms by bot id=5838259761
+2025-06-19 12:25:43 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:25:43 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:25:43 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:25:50 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:25:50 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:25:50 [INFO] aiogram.event: Update id=530519566 is handled. Duration 236 ms by bot id=5838259761
+2025-06-19 12:25:52 [INFO] aiogram.event: Update id=530519567 is handled. Duration 148 ms by bot id=5838259761
+2025-06-19 12:25:53 [INFO] aiogram.event: Update id=530519568 is handled. Duration 306 ms by bot id=5838259761
+2025-06-19 12:25:58 [INFO] aiogram.event: Update id=530519569 is handled. Duration 315 ms by bot id=5838259761
+2025-06-19 12:26:01 [INFO] aiogram.event: Update id=530519570 is handled. Duration 90 ms by bot id=5838259761
+2025-06-19 12:26:03 [INFO] aiogram.event: Update id=530519571 is handled. Duration 93 ms by bot id=5838259761
+2025-06-19 12:26:12 [INFO] aiogram.event: Update id=530519572 is handled. Duration 112 ms by bot id=5838259761
+2025-06-19 12:26:14 [INFO] aiogram.event: Update id=530519573 is handled. Duration 81 ms by bot id=5838259761
+2025-06-19 12:29:18 [WARNING] aiogram.dispatcher: Received SIGTERM signal
+2025-06-19 12:29:18 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:29:18 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:35:14 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:35:14 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:35:21 [INFO] aiogram.event: Update id=530519576 is handled. Duration 179 ms by bot id=5838259761
+2025-06-19 12:35:25 [INFO] aiogram.event: Update id=530519577 is handled. Duration 92 ms by bot id=5838259761
+2025-06-19 12:35:27 [INFO] aiogram.event: Update id=530519578 is handled. Duration 86 ms by bot id=5838259761
+2025-06-19 12:35:32 [INFO] aiogram.event: Update id=530519579 is handled. Duration 87 ms by bot id=5838259761
+2025-06-19 12:35:33 [INFO] aiogram.event: Update id=530519580 is handled. Duration 91 ms by bot id=5838259761
+2025-06-19 12:35:37 [INFO] aiogram.event: Update id=530519581 is handled. Duration 252 ms by bot id=5838259761
+2025-06-19 12:35:38 [INFO] aiogram.event: Update id=530519582 is handled. Duration 113 ms by bot id=5838259761
+2025-06-19 12:35:42 [INFO] aiogram.event: Update id=530519583 is handled. Duration 87 ms by bot id=5838259761
+2025-06-19 12:35:45 [INFO] aiogram.event: Update id=530519584 is handled. Duration 121 ms by bot id=5838259761
+2025-06-19 12:35:50 [INFO] aiogram.event: Update id=530519585 is handled. Duration 138 ms by bot id=5838259761
+2025-06-19 12:35:52 [INFO] aiogram.event: Update id=530519586 is handled. Duration 76 ms by bot id=5838259761
+2025-06-19 12:35:54 [INFO] aiogram.event: Update id=530519587 is handled. Duration 90 ms by bot id=5838259761
+2025-06-19 12:35:58 [INFO] Bot: message bot ____ | frame /home/pes/kaban_project/kaban_system2/photo/photo_Слон.jpg
+2025-06-19 12:35:59 [INFO] aiogram.event: Update id=530519588 is handled. Duration 2040 ms by bot id=5838259761
+2025-06-19 12:36:02 [INFO] aiogram.event: Update id=530519589 is handled. Duration 203 ms by bot id=5838259761
+2025-06-19 12:36:03 [INFO] aiogram.event: Update id=530519590 is handled. Duration 141 ms by bot id=5838259761
+2025-06-19 12:36:04 [INFO] aiogram.event: Update id=530519591 is handled. Duration 130 ms by bot id=5838259761
+2025-06-19 12:36:06 [INFO] aiogram.event: Update id=530519592 is handled. Duration 116 ms by bot id=5838259761
+2025-06-19 12:36:08 [INFO] aiogram.event: Update id=530519593 is handled. Duration 203 ms by bot id=5838259761
+2025-06-19 12:36:10 [INFO] aiogram.event: Update id=530519594 is handled. Duration 83 ms by bot id=5838259761
+2025-06-19 12:36:12 [INFO] aiogram.event: Update id=530519595 is handled. Duration 142 ms by bot id=5838259761
+2025-06-19 12:36:17 [INFO] aiogram.event: Update id=530519596 is handled. Duration 306 ms by bot id=5838259761
+2025-06-19 12:36:18 [INFO] aiogram.event: Update id=530519597 is handled. Duration 105 ms by bot id=5838259761
+2025-06-19 12:36:30 [INFO] aiogram.event: Update id=530519598 is handled. Duration 124 ms by bot id=5838259761
+2025-06-19 12:36:41 [INFO] aiogram.event: Update id=530519599 is handled. Duration 98 ms by bot id=5838259761
+2025-06-19 12:37:11 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:37:11 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:37:11 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:37:16 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:37:16 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:37:19 [INFO] aiogram.event: Update id=530519601 is handled. Duration 242 ms by bot id=5838259761
+2025-06-19 12:39:45 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:39:45 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:39:45 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:39:52 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:39:52 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:39:56 [INFO] aiogram.event: Update id=530519602 is handled. Duration 253 ms by bot id=5838259761
+2025-06-19 12:39:57 [INFO] aiogram.event: Update id=530519603 is handled. Duration 219 ms by bot id=5838259761
+2025-06-19 12:40:12 [INFO] aiogram.event: Update id=530519604 is handled. Duration 129 ms by bot id=5838259761
+2025-06-19 12:40:16 [INFO] aiogram.event: Update id=530519605 is handled. Duration 101 ms by bot id=5838259761
+2025-06-19 12:41:48 [INFO] aiogram.event: Update id=530519606 is handled. Duration 92 ms by bot id=5838259761
+2025-06-19 12:41:49 [INFO] aiogram.event: Update id=530519607 is handled. Duration 83 ms by bot id=5838259761
+2025-06-19 12:41:50 [INFO] aiogram.event: Update id=530519608 is handled. Duration 86 ms by bot id=5838259761
+2025-06-19 12:41:51 [INFO] aiogram.event: Update id=530519609 is handled. Duration 71 ms by bot id=5838259761
+2025-06-19 12:41:54 [INFO] Bot: message bot ____ | frame /home/pes/kaban_project/kaban_system2/photo/photo_Н3.jpg
+2025-06-19 12:41:54 [INFO] aiogram.event: Update id=530519610 is handled. Duration 1663 ms by bot id=5838259761
+2025-06-19 12:43:32 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:43:32 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:43:32 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:43:37 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:43:37 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:43:42 [INFO] aiogram.event: Update id=530519612 is handled. Duration 223 ms by bot id=5838259761
+2025-06-19 12:43:43 [INFO] aiogram.event: Update id=530519613 is handled. Duration 104 ms by bot id=5838259761
+2025-06-19 12:43:44 [INFO] aiogram.event: Update id=530519614 is handled. Duration 73 ms by bot id=5838259761
+2025-06-19 12:43:45 [INFO] aiogram.event: Update id=530519615 is handled. Duration 74 ms by bot id=5838259761
+2025-06-19 12:43:46 [INFO] aiogram.event: Update id=530519616 is not handled. Duration 4 ms by bot id=5838259761
+2025-06-19 12:44:06 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:44:06 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:44:06 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:44:12 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:44:12 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:44:14 [INFO] aiogram.event: Update id=530519619 is handled. Duration 208 ms by bot id=5838259761
+2025-06-19 12:44:19 [INFO] aiogram.event: Update id=530519620 is handled. Duration 72 ms by bot id=5838259761
+2025-06-19 12:44:26 [INFO] aiogram.event: Update id=530519621 is handled. Duration 204 ms by bot id=5838259761
+2025-06-19 12:44:29 [INFO] aiogram.event: Update id=530519622 is handled. Duration 77 ms by bot id=5838259761
+2025-06-19 12:44:31 [INFO] aiogram.event: Update id=530519623 is handled. Duration 127 ms by bot id=5838259761
+2025-06-19 12:44:32 [INFO] aiogram.event: Update id=530519624 is handled. Duration 131 ms by bot id=5838259761
+2025-06-19 12:45:22 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:45:22 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:45:22 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:45:28 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:45:28 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:45:36 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:45:36 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:45:36 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:45:46 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:45:46 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:45:53 [INFO] aiogram.event: Update id=530519627 is handled. Duration 201 ms by bot id=5838259761
+2025-06-19 12:45:54 [INFO] aiogram.event: Update id=530519628 is handled. Duration 101 ms by bot id=5838259761
+2025-06-19 12:45:55 [INFO] aiogram.event: Update id=530519629 is handled. Duration 218 ms by bot id=5838259761
+2025-06-19 12:45:56 [INFO] aiogram.event: Update id=530519630 is handled. Duration 77 ms by bot id=5838259761
+2025-06-19 12:46:15 [INFO] aiogram.event: Update id=530519631 is handled. Duration 77 ms by bot id=5838259761
+2025-06-19 12:46:16 [INFO] aiogram.event: Update id=530519632 is handled. Duration 88 ms by bot id=5838259761
+2025-06-19 12:46:17 [INFO] aiogram.event: Update id=530519633 is handled. Duration 82 ms by bot id=5838259761
+2025-06-19 12:46:19 [INFO] aiogram.event: Update id=530519634 is handled. Duration 102 ms by bot id=5838259761
+2025-06-19 12:46:20 [INFO] aiogram.event: Update id=530519635 is handled. Duration 203 ms by bot id=5838259761
+2025-06-19 12:46:21 [INFO] aiogram.event: Update id=530519636 is handled. Duration 74 ms by bot id=5838259761
+2025-06-19 12:47:06 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:47:06 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:47:06 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:47:13 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:47:13 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:47:17 [INFO] aiogram.event: Update id=530519637 is handled. Duration 259 ms by bot id=5838259761
+2025-06-19 12:47:21 [INFO] aiogram.event: Update id=530519638 is handled. Duration 89 ms by bot id=5838259761
+2025-06-19 12:47:22 [INFO] aiogram.event: Update id=530519639 is handled. Duration 72 ms by bot id=5838259761
+2025-06-19 12:47:23 [INFO] aiogram.event: Update id=530519640 is handled. Duration 74 ms by bot id=5838259761
+2025-06-19 12:47:24 [INFO] aiogram.event: Update id=530519641 is handled. Duration 70 ms by bot id=5838259761
+2025-06-19 12:47:27 [INFO] aiogram.event: Update id=530519642 is handled. Duration 74 ms by bot id=5838259761
+2025-06-19 12:47:28 [INFO] aiogram.event: Update id=530519643 is handled. Duration 81 ms by bot id=5838259761
+2025-06-19 12:50:30 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:50:30 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:50:30 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:50:37 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:50:37 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:50:45 [INFO] aiogram.event: Update id=530519644 is handled. Duration 712 ms by bot id=5838259761
+2025-06-19 12:50:47 [INFO] aiogram.event: Update id=530519645 is not handled. Duration 5 ms by bot id=5838259761
+2025-06-19 12:51:22 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 12:51:22 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:51:22 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 12:51:28 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 12:51:28 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 12:51:30 [INFO] aiogram.event: Update id=530519647 is handled. Duration 263 ms by bot id=5838259761
+2025-06-19 12:51:32 [INFO] aiogram.event: Update id=530519648 is handled. Duration 145 ms by bot id=5838259761
+2025-06-19 12:51:34 [INFO] aiogram.event: Update id=530519649 is handled. Duration 147 ms by bot id=5838259761
+2025-06-19 12:51:36 [INFO] aiogram.event: Update id=530519650 is handled. Duration 81 ms by bot id=5838259761
+2025-06-19 12:51:37 [INFO] aiogram.event: Update id=530519651 is handled. Duration 89 ms by bot id=5838259761
+2025-06-19 12:51:39 [INFO] aiogram.event: Update id=530519652 is handled. Duration 77 ms by bot id=5838259761
+2025-06-19 12:51:40 [INFO] aiogram.event: Update id=530519653 is handled. Duration 145 ms by bot id=5838259761
+2025-06-19 13:01:14 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 13:01:14 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 13:01:14 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 13:01:20 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 13:01:20 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 13:01:21 [INFO] aiogram.event: Update id=530519655 is handled. Duration 236 ms by bot id=5838259761
+2025-06-19 13:01:41 [INFO] aiogram.event: Update id=530519656 is handled. Duration 162 ms by bot id=5838259761
+2025-06-19 13:01:44 [INFO] Bot: message bot ____ | frame /home/pes/kaban_project/kaban_system2/photo/photo_Н3.jpg
+2025-06-19 13:01:44 [INFO] aiogram.event: Update id=530519657 is handled. Duration 1802 ms by bot id=5838259761
+2025-06-19 13:01:57 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 13:01:57 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 13:01:57 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 13:02:29 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 13:02:30 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 13:02:33 [INFO] Bot: message bot ____ | frame /home/pes/kaban_project/kaban_system2/photo/photo_Н3.jpg
+2025-06-19 13:02:34 [INFO] aiogram.event: Update id=530519659 is handled. Duration 1839 ms by bot id=5838259761
+2025-06-19 13:02:41 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 13:02:41 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 13:02:41 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-19 13:02:46 [INFO] aiogram.dispatcher: Start polling
+2025-06-19 13:02:46 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 13:02:51 [INFO] Bot: message bot ____ | frame /home/pes/kaban_project/kaban_system2/photo/photo_Н3.jpg
+2025-06-19 13:02:52 [INFO] aiogram.event: Update id=530519661 is handled. Duration 1847 ms by bot id=5838259761
+2025-06-19 13:02:55 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-19 13:02:55 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-19 13:02:55 [INFO] aiogram.dispatcher: Polling stopped

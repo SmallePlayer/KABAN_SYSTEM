@@ -29,45 +29,43 @@ class Form(StatesGroup):
     item_camera = State()
     item_rele_pin = State()
 
-@db_bot.message(F.text == "Update printer item")
+@db_bot.message(F.text == "Обновить компонент")
 async def update_item(message: types.Message, state: FSMContext):
     await state.set_state(Form.update_for_item)
     await message.answer("Напиши id принтера у которого хотите изменить что-то: ", 
-            reply_markup=types.ReplyKeyboardRemove())
+            reply_markup=kb.back_button.as_markup(resize_keyboard=True))
     
 @db_bot.message(Form.update_for_item)
 async def write_id(message: types.Message, state: FSMContext):
     printer["id"] = message.text
 
     await state.set_state(Form.chooce_item)
-    await message.answer("Введите то что хотите поменять: ", 
+    await message.answer("Выберите то что хотите поменять:", 
                 reply_markup=kb.db_numlock_item.as_markup(resize_keyboard=True))
 
 @db_bot.message(Form.chooce_item)
 async def write_id(message: types.Message, state: FSMContext):
     item = message.text
     
-    if item == "1":
+    if item == "Имя":
         await state.set_state(Form.item_name)
-    elif item == "2":
+    elif item == "Ip":
         await state.set_state(Form.item_ip)
-    elif item == "3":
+    elif item == "Адрес камеры":
         await state.set_state(Form.item_camera)
-    elif item == "4":
+    elif item == "Пин реле":
         await state.set_state(Form.item_rele_pin)
 
     await message.answer("Введите то что хотите поменять: ", 
                 reply_markup=types.ReplyKeyboardRemove())   
 
-    
-
-@db_bot.message(F.text == "Delete printer")
+@db_bot.message(F.text == "Удалить")
 async def delete(message: types.Message, state: FSMContext):
     await state.set_state(Form.delete_for_printer)
     await message.answer("Напиши id принтера который хотите удалить: ", 
-            reply_markup=types.ReplyKeyboardRemove())
+            reply_markup=kb.back_button.as_markup(resize_keyboard=True))
 
-@db_bot.message(F.text == "Показать all printers")
+@db_bot.message(F.text == "Все принтеры")
 async def show_all_printers(message: types.Message):
     message_parts = print_all_printer()
     
@@ -76,11 +74,39 @@ async def show_all_printers(message: types.Message):
             part,
             reply_markup=kb.db_printers.as_markup(resize_keyboard=True))
         
-@db_bot.message(F.text == "Ввести printer")
+@db_bot.message(F.text == "Новый принтер")
 async def req_id(message: types.Message, state: FSMContext):
     await state.set_state(Form.waiting_for_id)
     await message.answer("Введите id: ",
-                reply_markup=types.ReplyKeyboardRemove())
+                reply_markup=kb.back_button.as_markup(resize_keyboard=True))
+    
+@db_bot.message(Form.item_name)
+async def write_id(message: types.Message, state: FSMContext):
+    printer["name"] = message.text
+    update_printer(printer["id"], "name", printer["name"])
+    await message.answer(f"поменяли name ", 
+                reply_markup=kb.db_printers.as_markup(resize_keyboard=True))
+
+@db_bot.message(Form.item_ip)
+async def write_id(message: types.Message, state: FSMContext):
+    printer["ip"] = message.text
+    update_printer(printer["id"], "ip", printer["ip"])
+    await message.answer(f"поменяли ip ", 
+                reply_markup=kb.db_printers.as_markup(resize_keyboard=True))
+    
+@db_bot.message(Form.item_camera)
+async def write_id(message: types.Message, state: FSMContext):
+    printer["camera"] = message.text
+    update_printer(printer["id"], "camera", printer["camera"])
+    await message.answer(f"поменяли camera ", 
+                reply_markup=kb.db_printers.as_markup(resize_keyboard=True))
+
+@db_bot.message(Form.item_rele_pin)
+async def write_id(message: types.Message, state: FSMContext):
+    printer["rele_pin"] = message.text
+    update_printer(printer["id"], "rele_pin", printer["rele_pin"])
+    await message.answer(f"поменяли rele_pin ", 
+                reply_markup=kb.db_printers.as_markup(resize_keyboard=True))
 
 @db_bot.message(Form.waiting_for_id)
 async def write_id(message: types.Message, state: FSMContext):
@@ -89,11 +115,6 @@ async def write_id(message: types.Message, state: FSMContext):
     await state.set_state(Form.waiting_for_name)
     await message.answer("Введите имя принтера: ", 
                 reply_markup=types.ReplyKeyboardRemove())
-    
-@db_bot.message(Form.item_name)
-async def write_id(message: types.Message, state: FSMContext):
-    printer["name"] = message.text
-    update_printer(printer["id"], "name", printer["name"])
     
 @db_bot.message(Form.waiting_for_name)
 async def write_id(message: types.Message, state: FSMContext):

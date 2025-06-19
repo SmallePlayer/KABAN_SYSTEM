@@ -25,10 +25,11 @@ async def status_printr_1(message: types.Message):
 
     #data = get_data(printer_id)
     #status = get_stat_print(id)
+    name_printer = get_printer(id)
 
     logger.info(f"message bot ____ | frame {photo_name}")
     await message.answer_photo(frame)
-    await message.answer("фото", 
+    await message.answer(f"Фото с {name_printer[1]}", 
         reply_markup=kb.simple_printer_keyboard(id).as_markup(resize_keyboard=True))
 
 @main_bot.message(F.text.startswith("Вкл/Выкл"))

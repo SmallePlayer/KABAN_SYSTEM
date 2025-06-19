@@ -2,28 +2,30 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder, 
 from aiogram import types
 from Core.core import *
 
+back_button = ReplyKeyboardBuilder()
+back_button.add(types.KeyboardButton(text="База данных"))
 
 def main_keyboard():
     main_printers = ReplyKeyboardBuilder()
-    main_printers.add(KeyboardButton(text="Назад"))
+    main_printers.add(KeyboardButton(text="Главное меню"))
     for i in range(0, get_printers_count()):
         main_printers.add(KeyboardButton(text=f"Принтер {i}"))
     main_printers.adjust(3, 3, 3)
     return main_printers
 
 db_printers = ReplyKeyboardBuilder()
+db_printers.add(types.KeyboardButton(text="Главное меню"))
+db_printers.add(types.KeyboardButton(text="Новый принтер"))
+db_printers.add(types.KeyboardButton(text="Все принтеры"))
+db_printers.add(types.KeyboardButton(text="Удалить"))
+db_printers.add(types.KeyboardButton(text="Обновить компонент"))
 db_printers.adjust(3, 3, 3)
-db_printers.add(types.KeyboardButton(text="Назад"))
-db_printers.add(types.KeyboardButton(text="Ввести printer"))
-db_printers.add(types.KeyboardButton(text="Показать all printers"))
-db_printers.add(types.KeyboardButton(text="Delete printer"))
-db_printers.add(types.KeyboardButton(text="Update printer item"))
 
 db_numlock_item = ReplyKeyboardBuilder()
-db_numlock_item.add(types.KeyboardButton(text="1"))
-db_numlock_item.add(types.KeyboardButton(text="2"))
-db_numlock_item.add(types.KeyboardButton(text="3"))
-db_numlock_item.add(types.KeyboardButton(text="4"))
+db_numlock_item.add(types.KeyboardButton(text="Имя"))
+db_numlock_item.add(types.KeyboardButton(text="Ip"))
+db_numlock_item.add(types.KeyboardButton(text="Адрес камеры"))
+db_numlock_item.add(types.KeyboardButton(text="Пин реле"))
 
 
 def simple_printer_keyboard(id):

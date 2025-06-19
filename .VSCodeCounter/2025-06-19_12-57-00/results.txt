@@ -1,0 +1,36 @@
+Date : 2025-06-19 12:57:00
+Directory : /home/pes/kaban_project/kaban_system2/bot
+Total : 8 files,  244 codes, 4 comments, 70 blanks, all 318 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |          8 |        244 |          4 |         70 |        318 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                               | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                  |          8 |        244 |          4 |         70 |        318 |
+| . (Files)                                                          |          2 |         37 |          0 |         14 |         51 |
+| db_bot                                                             |          3 |        150 |          2 |         38 |        190 |
+| main_bot                                                           |          2 |         29 |          2 |         12 |         43 |
+| ui_bot                                                             |          1 |         28 |          0 |          6 |         34 |
++--------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                           | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /home/pes/kaban_project/kaban_system2/bot/__init__.py              | Python   |          0 |          0 |          1 |          1 |
+| /home/pes/kaban_project/kaban_system2/bot/db_bot/__init__.py       | Python   |          0 |          0 |          1 |          1 |
+| /home/pes/kaban_project/kaban_system2/bot/db_bot/db_bot_meneger.py | Python   |        131 |          0 |         31 |        162 |
+| /home/pes/kaban_project/kaban_system2/bot/db_bot/fun_add_bot.py    | Python   |         19 |          2 |          6 |         27 |
+| /home/pes/kaban_project/kaban_system2/bot/keyboard.py              | Python   |         37 |          0 |         13 |         50 |
+| /home/pes/kaban_project/kaban_system2/bot/main_bot/__init__.py     | Python   |          0 |          0 |          1 |          1 |
+| /home/pes/kaban_project/kaban_system2/bot/main_bot/bot.py          | Python   |         29 |          2 |         11 |         42 |
+| /home/pes/kaban_project/kaban_system2/bot/ui_bot/ui_bot.py         | Python   |         28 |          0 |          6 |         34 |
+| Total                                                              |          |        244 |          4 |         70 |        318 |
++--------------------------------------------------------------------+----------+------------+------------+------------+------------+

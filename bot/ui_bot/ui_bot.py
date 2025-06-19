@@ -20,14 +20,14 @@ async def to_printers_menu(message: types.Message, state: FSMContext):
     await message.answer("Выберите принтер", 
         reply_markup=kb.main_keyboard().as_markup(resize_keyboard=True))
     
-@ui_bot.message(F.text == "Добавление принтера в базу данных")
+@ui_bot.message((F.text == "Добавление принтера в базу данных") | (F.text == "База данных"))
 async def cmd_start(message: types.Message, state: FSMContext):
     await state.set_state(Navigation.DB_MENU)
     await message.answer(
         "Выберите действие:",
         reply_markup=kb.db_printers.as_markup(resize_keyboard=True))
 
-@ui_bot.message(F.text == "Назад")
+@ui_bot.message(F.text == "Главное меню")
 async def back_to_main(message: types.Message, state: FSMContext):
     await state.set_state(Navigation.MAIN_MENU)
     await message.answer("Главное меню", 
