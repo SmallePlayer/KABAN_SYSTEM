@@ -1,9 +1,0 @@
-"filename", "language", "Python", "Database", "comment", "blank", "total"
-"/home/pes/kaban_project/kaban_system2/Core/__init__.py", "Python", 0, 0, 0, -1, -1
-"/home/pes/kaban_project/kaban_system2/Core/capture.py", "Python", -14, 0, 0, -8, -22
-"/home/pes/kaban_project/kaban_system2/Core/config.py", "Python", -1, 0, 0, -3, -4
-"/home/pes/kaban_project/kaban_system2/Core/core.py", "Python", -27, 0, 0, -7, -34
-"/home/pes/kaban_project/kaban_system2/db/__init__.py", "Python", 0, 0, 0, 1, 1
-"/home/pes/kaban_project/kaban_system2/db/db.py", "Python", 134, 0, 38, 24, 196
-"/home/pes/kaban_project/kaban_system2/db/printer.db", "Database", 0, 12, 0, 0, 12
-"Total", "-", 92, 12, 38, 6, 148
