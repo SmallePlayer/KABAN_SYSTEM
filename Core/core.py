@@ -1,9 +1,9 @@
 from Core.capture import *
 from db.db import *
 from Core.config import *
-from request_printer import *
+from Core.request_printer import *
 from logger_config import setup_logger
-from uart_rele import *
+from Core.uart_rele import *
 import logging
 import time
 import cv2

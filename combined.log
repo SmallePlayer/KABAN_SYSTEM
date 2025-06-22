@@ -3035,3 +3035,8 @@ disable_notification
 2025-06-19 13:02:55 [WARNING] aiogram.dispatcher: Received SIGINT signal
 2025-06-19 13:02:55 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
 2025-06-19 13:02:55 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-21 12:41:51 [INFO] aiogram.dispatcher: Start polling
+2025-06-21 12:41:51 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-21 12:42:10 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-21 12:42:10 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-21 12:42:10 [INFO] aiogram.dispatcher: Polling stopped
