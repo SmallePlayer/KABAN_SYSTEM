@@ -5,7 +5,7 @@ from aiogram import F
 from Core.config import BOT_TOKEN
 from Core.core import *
 import bot.keyboard as kb
-from states import Navigation
+from bot.states import Navigation
 from aiogram.fsm.context import FSMContext
 
 

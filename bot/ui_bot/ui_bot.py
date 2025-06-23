@@ -2,7 +2,7 @@ from aiogram import types, Router
 from aiogram.filters import Command
 from aiogram import F
 import bot.keyboard as kb
-from states import Navigation
+from bot.states import Navigation
 from aiogram.fsm.context import FSMContext
 
 

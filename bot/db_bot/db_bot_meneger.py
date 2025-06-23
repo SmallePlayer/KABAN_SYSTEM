@@ -6,7 +6,7 @@ from aiogram.filters import Command
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from db.db import delete_printer, add_printer, update_printer
 from bot.db_bot.fun_add_bot import print_all_printer
-from states import Navigation
+from bot.states import Navigation
 import bot.keyboard as kb
 
 
