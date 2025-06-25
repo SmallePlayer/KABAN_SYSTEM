@@ -3040,3 +3040,16 @@ disable_notification
 2025-06-21 12:42:10 [WARNING] aiogram.dispatcher: Received SIGINT signal
 2025-06-21 12:42:10 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
 2025-06-21 12:42:10 [INFO] aiogram.dispatcher: Polling stopped
+2025-06-24 21:21:23 [INFO] aiogram.dispatcher: Start polling
+2025-06-24 21:21:23 [INFO] aiogram.dispatcher: Run polling for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-24 21:21:26 [INFO] aiogram.event: Update id=530519669 is handled. Duration 280 ms by bot id=5838259761
+2025-06-24 21:21:27 [INFO] aiogram.event: Update id=530519670 is handled. Duration 121 ms by bot id=5838259761
+2025-06-24 21:21:28 [INFO] aiogram.event: Update id=530519671 is handled. Duration 176 ms by bot id=5838259761
+2025-06-24 21:21:34 [INFO] aiogram.event: Update id=530519672 is handled. Duration 143 ms by bot id=5838259761
+2025-06-24 21:21:36 [INFO] aiogram.event: Update id=530519673 is handled. Duration 106 ms by bot id=5838259761
+2025-06-24 21:21:37 [INFO] aiogram.event: Update id=530519674 is handled. Duration 121 ms by bot id=5838259761
+2025-06-24 21:21:39 [INFO] aiogram.event: Update id=530519675 is handled. Duration 157 ms by bot id=5838259761
+2025-06-24 21:21:41 [INFO] aiogram.event: Update id=530519676 is handled. Duration 232 ms by bot id=5838259761
+2025-06-24 21:24:18 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-06-24 21:24:18 [INFO] aiogram.dispatcher: Polling stopped for bot @PesTree_bot id=5838259761 - 'test_Lesson'
+2025-06-24 21:24:18 [INFO] aiogram.dispatcher: Polling stopped

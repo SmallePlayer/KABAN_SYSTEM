@@ -5,7 +5,7 @@ import sqlite3
 # logger = logging.getLogger('db')
 # log.setup_logger()
 
-db_name = r'/home/pes/kaban_project/kaban_system2/db/printer.db'
+db_name = r'/home/main_server/KABAN_SYSTEM/db/printer.db'
 
 # Создаем подключение к БД
 def get_connection():
@@ -17,15 +17,7 @@ def get_connection():
 def init_db():
     with get_connection() as conn:
         cursor = conn.cursor()
-        cursor.execute('''
-        CREATE TABLE IF NOT EXISTS printers (
-            id TEXT PRIMARY KEY,
-            name TEXT NOT NULL,
-            ip TEXT NOT NULL,
-            camera TEXT NOT NULL,
-            rele_pin INTEGER NOT NULL
-        )
-        ''')
+        cursor.execute('''CREATE TABLE IF NOT EXISTS printers (id TEXT PRIMARY KEY, name TEXT NOT NULL, ip TEXT NOT NULL, camera TEXT NOT NULL, rele_pin INTEGER NOT NULL)''')
         conn.commit()
         # logger.info("Database initialized")
 
@@ -34,10 +26,7 @@ def add_printer(id, name, ip, camera, rele_pin):
     try:
         with get_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute('''
-            INSERT INTO printers (id, name, ip, camera, rele_pin)
-            VALUES (?, ?, ?, ?, ?)
-            ''', (id, name, ip, camera, rele_pin))
+            cursor.execute('''INSERT INTO printers (id, name, ip, camera, rele_pin) VALUES (?, ?, ?, ?, ?)''', (id, name, ip, camera, rele_pin))
             conn.commit()
             # logger.info(f"Added printer: ID={id}, Name={name}")
             return True
@@ -190,6 +179,5 @@ def update_printer_full(target_id, name=None, ip=None, camera=None, rele_pin=Non
 # Инициализируем БД при импорте модуля
 
 
-if __name__ == "__main__":
-    init_db()
-    delete_printer("1")
+init_db()
+

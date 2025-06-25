@@ -24,7 +24,7 @@ def create_photo(id):
     frame = get_frame(id_camera=int(printer[3]))
     time.sleep(0.2)
 
-    photo_path = os.path.join("/home/pes/kaban_project/kaban_system2/photo",
+    photo_path = os.path.join("/home/main_server/KABAN_SYSTEM/photo",
                 f"photo_{printer[1]}.jpg")
 
     if frame is None:

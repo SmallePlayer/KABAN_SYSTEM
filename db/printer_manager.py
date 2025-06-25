@@ -1,5 +1,5 @@
 import sqlite3
-from db.db import add_printer, get_all_printers, delete_printer, update_printer, update_printer_full
+from db import add_printer, get_all_printers, delete_printer, update_printer, update_printer_full
 
 def print_menu():
     print("\n--- Printer Management System ---")

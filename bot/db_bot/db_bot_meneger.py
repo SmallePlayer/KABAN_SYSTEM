@@ -143,6 +143,7 @@ async def write_id(message: types.Message, state: FSMContext):
 @db_bot.message(Form.waiting_for_relePin)
 async def write_id(message: types.Message, state: FSMContext):
     printer["rele_pin"] = message.text
+    
     add_printer(printer["id"], printer["name"], printer["ip"], printer["camera"], printer["rele_pin"])
  
     await state.clear()

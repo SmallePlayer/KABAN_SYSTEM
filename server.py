@@ -1,6 +1,8 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse, Response
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from pathlib import Path
 import uvicorn
 from db.db import *
@@ -11,14 +13,20 @@ from Core.core import create_photo
 
 app = FastAPI()
 
+app.mount("/frontEnd/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="frontEnd/templates")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"]
 )
 
-@app.get("/")
-def start():
-    return HTMLResponse(content="<h1>Hello</h1>")
+@app.get("/", response_class=HTMLResponse)
+def start(request: Request):
+    return templates.TemplateResponse(
+        "index.html",
+        {"request": request, "message": "Привет от FastAPI!"}
+    )
 
 @app.get("/all_printers")
 def read_all_printer():
