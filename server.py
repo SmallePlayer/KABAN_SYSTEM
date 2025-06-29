@@ -13,7 +13,7 @@ from Core.core import create_photo
 
 app = FastAPI()
 
-app.mount("/frontEnd/static", StaticFiles(directory="static"), name="static")
+app.mount("/frontEnd/static", StaticFiles(directory="frontEnd/static"), name="static")
 templates = Jinja2Templates(directory="frontEnd/templates")
 
 app.add_middleware(

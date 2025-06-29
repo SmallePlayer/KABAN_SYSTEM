@@ -1,30 +1,25 @@
 from Core.capture import *
 from db.db import *
 from Core.config import *
-from Core.request_printer import *
 from logger_config import setup_logger
-from Core.uart_rele import *
-import logging
+from Core.test_request import emegency_stop
 import time
 import cv2
 import os
+import path
 
 
-def get_stat_print(id):
+def emeg_stop(id: int):
     printer = get_printer(id)
-    print(printer['pi'] + ":80")
-    return print_status(printer['pi'] + ":80")
+    print(emegency_stop(printer['ip'] + ":80"))
+    return printer["name"]
 
-def edit_state_rele(state, id):
-    printer = get_printer(id)
-    return send_comand(state, printer['rele_pin'])
-
-def create_photo(id):
-    printer = get_printer(id)
+def create_photo(name: str):
+    printer = get_printer_by_name(name)
     frame = get_frame(id_camera=int(printer[3]))
     time.sleep(0.2)
 
-    photo_path = os.path.join("/home/main_server/KABAN_SYSTEM/photo",
+    photo_path = os.path.join(path.path_photo_rasp,
                 f"photo_{printer[1]}.jpg")
 
     if frame is None:

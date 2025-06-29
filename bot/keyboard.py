@@ -9,7 +9,8 @@ def main_keyboard():
     main_printers = ReplyKeyboardBuilder()
     main_printers.add(KeyboardButton(text="Главное меню"))
     for i in range(0, get_printers_count()):
-        main_printers.add(KeyboardButton(text=f"Принтер {i}"))
+        printer = get_printer(i)
+        main_printers.add(KeyboardButton(text=f"Принтер {printer[1]}"))
     main_printers.adjust(3, 3, 3)
     return main_printers
 
@@ -28,14 +29,14 @@ db_numlock_item.add(types.KeyboardButton(text="Адрес камеры"))
 db_numlock_item.add(types.KeyboardButton(text="Пин реле"))
 
 
-def simple_printer_keyboard(id):
+def simple_printer_keyboard(name):
     simple_printer = ReplyKeyboardBuilder()
     simple_printer.row(
         types.KeyboardButton(text="Принтеры"),
-        types.KeyboardButton(text=f"Вкл/Выкл {id}")
+        types.KeyboardButton(text=f"Аварийная остановка {name}")
     )
     simple_printer.row(
-        types.KeyboardButton(text=f"Принтер {id}")
+        types.KeyboardButton(text=f"Принтер {name}")
     )
 
     return simple_printer

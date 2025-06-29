@@ -1,13 +1,10 @@
 import sqlite3
-# import logging
-# import logger_config as log
+import Core.path as pt
 
-# logger = logging.getLogger('db')
-# log.setup_logger()
 
-db_name = r'/home/main_server/KABAN_SYSTEM/db/printer.db'
+db_name = pt.path_db_rasp
 
-# Создаем подключение к БД
+
 def get_connection():
     conn = sqlite3.connect(db_name)
     conn.row_factory = sqlite3.Row  # Для доступа к столбцам по имени
@@ -17,16 +14,16 @@ def get_connection():
 def init_db():
     with get_connection() as conn:
         cursor = conn.cursor()
-        cursor.execute('''CREATE TABLE IF NOT EXISTS printers (id TEXT PRIMARY KEY, name TEXT NOT NULL, ip TEXT NOT NULL, camera TEXT NOT NULL, rele_pin INTEGER NOT NULL)''')
+        cursor.execute('''CREATE TABLE IF NOT EXISTS printers (id TEXT PRIMARY KEY, name TEXT NOT NULL, ip TEXT NOT NULL, camera TEXT NOT NULL)''')
         conn.commit()
         # logger.info("Database initialized")
 
 # Добавление нового принтера
-def add_printer(id, name, ip, camera, rele_pin):
+def add_printer(id, name, ip, camera):
     try:
         with get_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute('''INSERT INTO printers (id, name, ip, camera, rele_pin) VALUES (?, ?, ?, ?, ?)''', (id, name, ip, camera, rele_pin))
+            cursor.execute('''INSERT INTO printers (id, name, ip, camera) VALUES (?, ?, ?, ?, ?)''', (id, name, ip, camera))
             conn.commit()
             # logger.info(f"Added printer: ID={id}, Name={name}")
             return True
@@ -47,7 +44,24 @@ def get_printer(target_id):
                     printer['name'],
                     printer['ip'],
                     printer['camera'],
-                    printer['rele_pin']
+                )
+            return None
+    except Exception as e:
+        # logger.error(f"Error fetching printer: {str(e)}")
+        return None
+    
+def get_printer_by_name(target_name):
+    try:
+        with get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM printers WHERE name = ?", (target_name,))
+            printer = cursor.fetchone()
+            if printer:
+                return (
+                    printer['id'],
+                    printer['name'],
+                    printer['ip'],
+                    printer['camera'],
                 )
             return None
     except Exception as e:
@@ -95,7 +109,7 @@ def delete_printer(target_id):
 def update_printer(target_id, field, new_value):
     try:
         # Проверяем допустимые поля для обновления
-        allowed_fields = ['name', 'ip', 'camera', 'rele_pin']
+        allowed_fields = ['name', 'ip', 'camera']
         if field not in allowed_fields:
             # logger.error(f"Invalid field for update: {field}")
             return False
@@ -103,7 +117,7 @@ def update_printer(target_id, field, new_value):
         with get_connection() as conn:
             cursor = conn.cursor()
             # Для числовых полей преобразуем значение
-            if field in ['camera', 'rele_pin']:
+            if field in ['camera']:
                 try:
                     new_value = int(new_value)
                 except ValueError:
@@ -126,7 +140,7 @@ def update_printer(target_id, field, new_value):
         return False
 
 # НОВАЯ ФУНКЦИЯ: Полное обновление принтера
-def update_printer_full(target_id, name=None, ip=None, camera=None, rele_pin=None):
+def update_printer_full(target_id, name=None, ip=None, camera=None):
     try:
         with get_connection() as conn:
             cursor = conn.cursor()
@@ -149,12 +163,6 @@ def update_printer_full(target_id, name=None, ip=None, camera=None, rele_pin=Non
                     update_fields['camera'] = int(camera)
                 except ValueError:
                     # logger.error("Camera must be integer")
-                    return False
-            if rele_pin is not None:
-                try:
-                    update_fields['rele_pin'] = int(rele_pin)
-                except ValueError:
-                    # logger.error("Relay pin must be integer")
                     return False
             
             # Формируем SQL-запрос

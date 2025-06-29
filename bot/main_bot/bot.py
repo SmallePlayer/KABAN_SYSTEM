@@ -18,26 +18,23 @@ state = False
 
 @main_bot.message(F.text.startswith("Принтер"))
 async def status_printr_1(message: types.Message):
-    id = message.text.split()[1]
+    name = message.text.split()[1]
 
-    photo_name = create_photo(int(id))
+    photo_name = create_photo(name)
     frame = FSInputFile(photo_name)
 
     #data = get_data(printer_id)
     #status = get_stat_print(id)
-    name_printer = get_printer(id)
 
-    logger.info(f"message bot ____ | frame {photo_name}")
     await message.answer_photo(frame)
-    await message.answer(f"Фото с {name_printer[1]}", 
-        reply_markup=kb.simple_printer_keyboard(id).as_markup(resize_keyboard=True))
+    await message.answer(f"Фото с {name}", 
+        reply_markup=kb.simple_printer_keyboard(name).as_markup(resize_keyboard=True))
 
-@main_bot.message(F.text.startswith("Вкл/Выкл"))
+@main_bot.message(F.text.startswith("Аварийная остановка"))
 async def status_printr_change(message: types.Message):
     id = message.text.split()[1]
 
-    global state
-    state = not state
-    responce = edit_state_rele(state, id)
+    name = emeg_stop(id)
 
-    await message.answer(f"Статус принтера {id}: {responce} \nОтвет реле: {responce}")
+
+    await message.answer(f"Принтер {name} выполнил аварийную остановку")

@@ -1,8 +1,6 @@
 import requests
 
 
-url = "http://192.168.1.69:80"
-
 def resp_get(url, endpoint):
     response = requests.get(f"{url}{endpoint}")
     response.raise_for_status()
@@ -21,13 +19,15 @@ def resp_post(url, endpoint):
     data = response.json()
     return data
 
+
+def emegency_stop(url):
+    endpoint = "/printer/emergency_stop"
+    return resp_post(url, endpoint)
+
+
 def get_info(url):
     endpoint = "/printer/objects/list"
     return resp_get(url, endpoint)
-
-def pause_print(url):
-    endpoint = "/printer/emergency_stop"
-    return resp_post(url, endpoint)
 
 def resume_print(url):
     endpoint = "/printer/print/resume"
@@ -47,4 +47,3 @@ def extruder_info(url):
     }
     return resp_params_get(url, endpoint, params)
 
-print(get_info(url))

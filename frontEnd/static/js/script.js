@@ -1,4 +1,4 @@
-fetch('http://desktop-43mqlbj.netbird.cloud:8000/main_menu/{number}')
+fetch('http://127.0.0.1:8000/all_printers')
     .then(response => {
         if(!response.ok) throw new Error('Ошибка сети');
         return response.json();
