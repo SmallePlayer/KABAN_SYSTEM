@@ -33,7 +33,7 @@ def simple_printer_keyboard(name):
     simple_printer = ReplyKeyboardBuilder()
     simple_printer.row(
         types.KeyboardButton(text="Принтеры"),
-        types.KeyboardButton(text=f"Аварийная остановка {name}")
+        types.KeyboardButton(text=f"❌Аварийная остановка❌ {name}")
     )
     simple_printer.row(
         types.KeyboardButton(text=f"Принтер {name}")

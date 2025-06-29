@@ -27,11 +27,11 @@ async def status_printr_1(message: types.Message):
     await message.answer(f"Фото с {name}", 
         reply_markup=kb.simple_printer_keyboard(name).as_markup(resize_keyboard=True))
 
-@main_bot.message(F.text.startswith("Аварийная остановка"))
+@main_bot.message(F.text.startswith("❌Аварийная остановка❌"))
 async def status_printr_change(message: types.Message):
-    id = message.text.split()[1]
+    id_printer = message.text.split()[1]
 
-    name = emeg_stop(id)
+    name = war_stop(id_printer)
 
 
     await message.answer(f"Принтер {name} выполнил аварийную остановку")

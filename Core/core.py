@@ -9,8 +9,8 @@ import os
 import Core.path as pt
 
 
-def emeg_stop(id: int):
-    printer = get_printer(id)
+def war_stop(id_printer: int):
+    printer = get_printer(id_printer)
     print(emegency_stop(printer['ip'] + ":80"))
     return printer["name"]
 
@@ -20,7 +20,6 @@ def create_photo(name: str):
     time.sleep(0.2)
 
     if printer[1] == "Слон":
-        print("2")
         frame = cv2.flip(frame, -1)
 
     photo_path = os.path.join(pt.path_photo_pc,
