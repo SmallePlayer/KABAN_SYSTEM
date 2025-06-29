@@ -2,7 +2,7 @@ import sqlite3
 import Core.path as pt
 
 
-db_name = pt.path_db_rasp
+db_name = pt.path_db_pc
 
 
 def get_connection():

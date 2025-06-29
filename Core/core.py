@@ -6,7 +6,7 @@ from Core.test_request import emegency_stop
 import time
 import cv2
 import os
-import path
+import Core.path as pt
 
 
 def emeg_stop(id: int):
@@ -19,7 +19,11 @@ def create_photo(name: str):
     frame = get_frame(id_camera=int(printer[3]))
     time.sleep(0.2)
 
-    photo_path = os.path.join(path.path_photo_rasp,
+    if printer[1] == "Слон":
+        print("2")
+        frame = cv2.flip(frame, -1)
+
+    photo_path = os.path.join(pt.path_photo_pc,
                 f"photo_{printer[1]}.jpg")
 
     if frame is None:

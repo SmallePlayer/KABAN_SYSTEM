@@ -9,9 +9,6 @@ from bot.states import Navigation
 from aiogram.fsm.context import FSMContext
 
 
-logger = logging.getLogger('Bot')
-setup_logger()
-
 main_bot = Router()
 
 state = False 
