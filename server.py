@@ -9,8 +9,6 @@ from db.db import *
 from bot.db_bot.fun_add_bot import print_all_printer
 from Core.core import create_photo
 
-
-
 app = FastAPI()
 
 app.mount("/frontEnd/static", StaticFiles(directory="frontEnd/static"), name="static")
@@ -61,4 +59,4 @@ def simple_printer(id):
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True)
+    uvicorn.run("server:app", reload=True)
