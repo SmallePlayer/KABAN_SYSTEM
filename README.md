@@ -172,7 +172,7 @@ class Form(StatesGroup):
 |----------|----------|------------|
 | `/` | Главная страница | HTML |
 | `/all_printers` | Список всех принтеров | JSON |
-| `/printers/{id}/` | Информация о принтере | JSON |
+
 | `/printer_photo/{printer_id}` | Фото принтера | Image |
 
 ### POST запросы

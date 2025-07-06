@@ -31,10 +31,6 @@ def read_all_printer():
     printers = get_all_printers()
     return printers
 
-@app.get("/printers/{id}/")
-def read_printer(id_printer: int):
-    return date_printer(id_printer)
-
 
 @app.get("/printer_photo/{printer_id}")
 def get_printer_photo(printer_id: str):
@@ -72,10 +68,7 @@ def update_printer_photo(printer_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error updating photo: {str(e)}")
 
-def date_printer(id_printer):
-    printers = get_all_printers()
-    simple_printer = printers[id_printer]
-    return simple_printer
+
 
 
 
