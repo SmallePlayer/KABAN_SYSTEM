@@ -8,8 +8,6 @@ import uvicorn
 from db.db import *
 from Core.core import create_photo
 
-
-
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="frontEnd/static"), name="static")
