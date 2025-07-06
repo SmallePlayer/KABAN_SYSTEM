@@ -35,18 +35,6 @@ def read_all_printer():
 def read_printer(id_printer: int):
     return date_printer(id_printer)
 
-@app.get("/printers/{id}/image")
-def get_image_printer(id_printer: str):
-    path_image = create_photo(id_printer)
-    image_path = Path(path_image)
-
-    if not image_path.exists():
-        raise HTTPException(status_code=404, detail="Image not found")
-
-    return Response(
-        content=image_path.read_bytes(),
-        media_type="image/jpeg"
-    )
 
 @app.get("/printer_photo/{printer_id}")
 def get_printer_photo(printer_id: str):
