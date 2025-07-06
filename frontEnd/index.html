@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KABAN SYSTEM</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <!-- Верхняя панель -->
+    <header class="top-panel">
+        <h1>KABAN SYSTEM - Управление 3D принтерами</h1>
+    </header>
+
+    <!-- Боковая панель -->
+    <aside class="sidebar">
+        <h2>Меню</h2>
+    </aside>
+
+    <!-- Центральная панель -->
+    <main class="main-content">
+        <div class="printers-container" id="printers-container">
+            <!-- Принтеры будут загружены динамически -->
+        </div>
+    </main>
+
+    <script>
+        // Функция для загрузки принтеров
+        async function loadPrinters() {
+            try {
+                const response = await fetch('/all_printers');
+                const printers = await response.json();
+                
+                console.log('Загружено принтеров:', printers.length);
+                console.log('Данные принтеров:', printers);
+                
+                if (printers && printers.length > 0) {
+                    displayPrinters(printers);
+                } else {
+                    // Если нет принтеров в БД, показываем уведомление
+                    showEmptyDatabaseMessage();
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки принтеров:', error);
+                // При ошибке тоже показываем тестовые принтеры
+                const testPrinters = [
+                    {
+                        "id": "Н3",
+                        "name": "3D Принтер Н3",
+                        "ip": "192.168.1.100",
+                        "camera": 1
+                    },
+                    {
+                        "id": "Слон",
+                        "name": "3D Принтер Слон", 
+                        "ip": "192.168.1.101",
+                        "camera": 2
+                    }
+                ];
+                displayPrinters(testPrinters);
+            }
+        }
+
+        // Функция отображения принтеров
+        function displayPrinters(printers) {
+            const container = document.getElementById('printers-container');
+            container.innerHTML = '';
+            
+            console.log('Создаем карточки для принтеров:', printers);
+            
+            printers.forEach((printer, index) => {
+                console.log(`Создаем карточку ${index + 1} для принтера:`, printer);
+                const printerCard = createPrinterCard(printer);
+                container.appendChild(printerCard);
+                console.log(`Карточка ${index + 1} добавлена`);
+            });
+            
+            console.log('Всего карточек создано:', container.children.length);
+        }
+
+        // Функция автоматического обновления всех фото
+        async function updateAllPhotos(printers) {
+            for (const printer of printers) {
+                try {
+                    await updatePrinterPhoto(printer.id, printer.name, true);
+                } catch (error) {
+                    console.error(`Ошибка обновления фото для ${printer.name}:`, error);
+                }
+            }
+        }
+
+        // Функция создания карточки принтера
+        function createPrinterCard(printer) {
+            const card = document.createElement('div');
+            card.className = 'printer-info-card';
+            
+            card.innerHTML = `
+                <div class="printer-image">
+                    <img src="/printer_photo/${printer.name}" alt="3D Принтер ${printer.name}" class="printer-photo" onerror="this.src='/printer_photo/Н3'">
+                </div>
+                <div class="printer-details">
+                    <h2 class="printer-name">${printer.name}</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">ID принтера:</span>
+                            <span class="info-value">${printer.id}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">IP адрес:</span>
+                            <span class="info-value">${printer.ip}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Камера:</span>
+                            <span class="info-value">${printer.camera}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Статус:</span>
+                            <span class="info-value status-online">Онлайн</span>
+                        </div>
+                    </div>
+                    <button class="update-photo-btn-bottom" onclick="updatePrinterPhoto('${printer.id}', '${printer.name}')">
+                        📸 Обновить фото
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Функция показа сообщения о пустой базе данных
+        function showEmptyDatabaseMessage() {
+            const container = document.getElementById('printers-container');
+            container.innerHTML = `
+                <div class="empty-database-message">
+                    <div class="empty-icon">📋</div>
+                    <h2>База данных пуста</h2>
+                    <p>В базе данных нет принтеров для отображения.</p>
+                    <p>Добавьте принтеры в базу данных для начала работы.</p>
+                </div>
+            `;
+        }
+
+        // Функция показа тестового принтера
+        function showTestPrinter() {
+            const container = document.getElementById('printers-container');
+            container.innerHTML = `
+                <div class="printer-info-card">
+                    <div class="printer-image">
+                        <img src="/printer_photo/Н3" alt="3D Принтер Н3" class="printer-photo">
+                    </div>
+                    <div class="printer-details">
+                        <h2 class="printer-name">3D Принтер Н3</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">ID принтера:</span>
+                                <span class="info-value">Н3</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">IP адрес:</span>
+                                <span class="info-value">192.168.1.100</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Камера:</span>
+                                <span class="info-value">1</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Статус:</span>
+                                <span class="info-value status-online">Онлайн</span>
+                            </div>
+                        </div>
+                        <button class="update-photo-btn-bottom" onclick="updatePrinterPhoto('Н3', 'Н3')">
+                            📸 Обновить фото
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Функция обновления фото принтера
+        async function updatePrinterPhoto(printerId, printerName, silent = false) {
+            try {
+                const response = await fetch(`/update_printer_photo/${printerId}`, {
+                    method: 'POST'
+                });
+                
+                if (response.ok) {
+                    // Обновляем изображение на странице
+                    const img = document.querySelector(`img[alt="3D Принтер ${printerName}"]`);
+                    if (img) {
+                        img.src = `/printer_photo/${printerName}?t=${Date.now()}`;
+                    }
+                    
+                    if (!silent) {
+                        alert('Фото успешно обновлено!');
+                    }
+                } else {
+                    const error = await response.json();
+                    if (!silent) {
+                        alert('Ошибка обновления фото: ' + error.detail);
+                    }
+                }
+            } catch (error) {
+                if (!silent) {
+                    alert('Ошибка при обновлении фото');
+                }
+            }
+        }
+
+        // Загружаем принтеры при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Страница загружена, начинаем загрузку принтеров...');
+            loadPrinters();
+        });
+    </script>
+</body>
+</html> 
