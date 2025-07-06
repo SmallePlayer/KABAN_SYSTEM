@@ -1,5 +1,11 @@
 import sqlite3
-from db import add_printer, get_all_printers, delete_printer, update_printer, update_printer_full
+import sys
+import os
+
+# Добавляем родительскую директорию в путь для импорта
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from db.db import (add_printer, get_all_printers, delete_printer, update_printer, update_printer_full, init_db, check_db_status)
 
 def print_menu():
     print("\n--- Printer Management System ---")
@@ -15,12 +21,15 @@ def add_printer_console():
     name = input("Enter printer name: ").strip()
     ip = input("Enter printer IP: ").strip()
     camera = input("Enter camera index: ").strip()
-    rele_pin = input("Enter relay pin: ").strip()
-    
-    if add_printer(printer_id, name, ip, int(camera), int(rele_pin)):
-        print("Printer added successfully!")
-    else:
-        print("Failed to add printer")
+
+    try:
+        camera_int = int(camera)
+        if add_printer(printer_id, name, ip, camera_int):
+            print("Printer added successfully!")
+        else:
+            print("Failed to add printer (printer with this ID may already exist)")
+    except ValueError:
+        print("Error: Camera index must be a number")
 
 def list_printers():
     printers = get_all_printers()
@@ -30,7 +39,6 @@ def list_printers():
         print(f"   Name: {printer['name']}")
         print(f"   IP: {printer['ip']}")
         print(f"   Camera: {printer['camera']}")
-        print(f"   Relay Pin: {printer['rele_pin']}")
         print("-" * 30)
 
 def delete_printer_console():
@@ -55,8 +63,7 @@ def update_printer_console():
     print("1. Name")
     print("2. IP Address")
     print("3. Camera Index")
-    print("4. Relay Pin")
-    print("5. Update multiple fields")
+    print("4. Update multiple fields")
     
     choice = input("Select option: ").strip()
     
@@ -76,34 +83,30 @@ def update_printer_console():
     
     elif choice == "3":
         new_camera = input("Enter new camera index: ").strip()
-        if update_printer(printer_id, 'camera', new_camera):
-            print("Camera index updated successfully!")
-        else:
-            print("Failed to update camera index")
-    
+        try:
+            camera_int = int(new_camera)
+            if update_printer(printer_id, 'camera', camera_int):
+                print("Camera index updated successfully!")
+            else:
+                print("Failed to update camera index")
+        except ValueError:
+            print("Error: Camera index must be a number")
+
     elif choice == "4":
-        new_pin = input("Enter new relay pin: ").strip()
-        if update_printer(printer_id, 'rele_pin', new_pin):
-            print("Relay pin updated successfully!")
-        else:
-            print("Failed to update relay pin")
-    
-    elif choice == "5":
         print("\n--- Update Multiple Fields ---")
         print("Leave field blank to keep current value")
         
         new_name = input("Enter new name: ").strip()
         new_ip = input("Enter new IP: ").strip()
         new_camera = input("Enter new camera index: ").strip()
-        new_pin = input("Enter new relay pin: ").strip()
         
         # Преобразуем пустые строки в None
         name = new_name if new_name else None
         ip = new_ip if new_ip else None
-        camera = new_camera if new_camera else None
-        rele_pin = new_pin if new_pin else None
+        camera = int(new_camera) if new_camera else None
+
         
-        if update_printer_full(printer_id, name, ip, camera, rele_pin):
+        if update_printer_full(printer_id, name, ip, camera):
             print("Printer updated successfully!")
         else:
             print("Failed to update printer")
@@ -112,6 +115,18 @@ def update_printer_console():
         print("Invalid option")
 
 def main():
+    # Инициализируем базу данных
+    print("Initializing database...")
+    if init_db():
+        print("Database initialized successfully!")
+    else:
+        print("Failed to initialize database!")
+        return
+    
+    # Проверяем состояние БД
+    print("\nChecking database status...")
+    check_db_status()
+    
     while True:
         print_menu()
         choice = input("Select option: ").strip()

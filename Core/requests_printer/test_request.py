@@ -24,26 +24,26 @@ def emegency_stop(url):
     endpoint = "/printer/emergency_stop"
     return resp_post(url, endpoint)
 
-
-def get_info(url):
-    endpoint = "/printer/objects/list"
-    return resp_get(url, endpoint)
-
-def resume_print(url):
-    endpoint = "/printer/print/resume"
-    return resp_post(url, endpoint)
-
-def cancle_print(url):
-    endpoint = "/printer/print/cancle"
-    return resp_post(url, endpoint)
-
-def extruder_info(url):
-    endpoint = "/printer/objects/query"
-    params = {
-        "objects": {
-        "extruder": None,
-        "toolhead": ["temperature", "target"]
-        }
-    }
-    return resp_params_get(url, endpoint, params)
-
+#
+# def get_info(url):
+#     endpoint = "/printer/objects/list"
+#     return resp_get(url, endpoint)
+#
+# def resume_print(url):
+#     endpoint = "/printer/print/resume"
+#     return resp_post(url, endpoint)
+#
+# def cancle_print(url):
+#     endpoint = "/printer/print/cancle"
+#     return resp_post(url, endpoint)
+#
+# def extruder_info(url):
+#     endpoint = "/printer/objects/query"
+#     params = {
+#         "objects": {
+#         "extruder": None,
+#         "toolhead": ["temperature", "target"]
+#         }
+#     }
+#     return resp_params_get(url, endpoint, params)
+#

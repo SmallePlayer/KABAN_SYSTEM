@@ -1,88 +1,243 @@
+/* Сброс стилей */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-body{
-    background: rgba(255,255,255);
-    min-height: 100vh;
-}
-
-.main-content{
-    margin: 20px 50px;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    position: fixed;
-    left: 200px;
-}
-
-.top-panel{
-    background: rgba(26, 42, 108, 1);
-    padding: 40px 30px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 100;
-    color: whitesmoke;
-}
-
-.left-panel{
+/* Верхняя панель */
+.top-panel {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
-    width: 200px;
-    background: rgba(26, 42, 108, 1);
+    right: 0;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
     display: flex;
-    flex-direction: column;
-    padding-top: 80px;
     align-items: center;
-    z-index: 50;
-    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.main-content{
-    width: 90%;
-    margin: 20px auto;
-    padding: 2%;
+.top-panel h1 {
+    font-size: 28px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
 }
-.adaptive_box{
-    border: 3px solid rgba(0,0,0);
-    border-radius: 12px;
-    padding: clamp(15px,5%,30px);
-    width: 100%;
+
+/* Боковая панель */
+.sidebar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 200px;
+    height: calc(100vh - 70px);
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+/* Центральная панель */
+.main-content {
+    margin-left: 200px;
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.05);
+    border-radius: 20px 0 0 0;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.printers-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-}
-
-.printer_window{
-    max-width: 650px;
-    min-width: 650px;
-    border: 1px solid rgba(0,0,0);
-    width: 33%;
-    height: 66%;
-    border-radius: 10px;
-    box-shadow: 0 0 0 4px rgba(10,10,10);
-}
-
-.line-fill{
-    background: black;
+    max-width: 1200px;
     width: 100%;
-    height: 3px;
 }
 
-.image_frame{
-    min-width: 640px;
-    min-height: 480px;
+/* Карточка с информацией о принтере */
+.printer-info-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 400px;
     width: 100%;
-    height: 60%;
-}
-.info_printer{
     display: flex;
     flex-direction: column;
-    padding: 10px 10px;
+    margin: 10px;
 }
+
+.printer-image {
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.printer-photo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.update-photo-btn-bottom {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+.update-photo-btn-bottom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Сообщение о пустой базе данных */
+.empty-database-message {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.empty-database-message h2 {
+    color: #2c3e50;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.empty-database-message p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.printer-image {
+    position: relative;
+}
+
+.printer-details {
+    padding: 20px;
+}
+
+.printer-name {
+    font-size: 24px;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.info-label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 16px;
+}
+
+.info-value {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.status-online {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Дополнительные эффекты при наведении */
+.top-panel:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    transition: background 0.3s ease;
+}
+
+.sidebar:hover {
+    background: linear-gradient(180deg, #243342 0%, #2c3e50 100%);
+    transition: background 0.3s ease;
+}
+
+.main-content:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);
+    transition: background 0.3s ease;
+} 

@@ -1,8 +1,6 @@
 from Core.capture import *
 from db.db import *
-from Core.config import *
-from logger_config import setup_logger
-from Core.test_request import emegency_stop
+from Core.requests_printer.test_request import emegency_stop
 import time
 import cv2
 import os

@@ -1,8 +1,10 @@
 import sqlite3
-import Core.path as pt
+import os
 
 
-db_name = pt.path_db_pc
+# Путь к базе данных (абсолютный путь)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+db_name = os.path.join(current_dir, "printer.db")
 
 
 def get_connection():
@@ -11,23 +13,55 @@ def get_connection():
     return conn
 
 # Инициализация БД
+def check_db_status():
+    """Проверка состояния базы данных"""
+    try:
+        with get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='printers'")
+            table_exists = cursor.fetchone() is not None
+            
+            if table_exists:
+                cursor.execute("SELECT COUNT(*) FROM printers")
+                count = cursor.fetchone()[0]
+                print(f"Database status: OK")
+                print(f"Table 'printers' exists: {table_exists}")
+                print(f"Number of printers: {count}")
+                return True
+            else:
+                print("Database status: Table 'printers' does not exist")
+                return False
+    except Exception as e:
+        print(f"Database status error: {e}")
+        return False
+
+# Инициализация БД
 def init_db():
-    with get_connection() as conn:
-        cursor = conn.cursor()
-        cursor.execute('''CREATE TABLE IF NOT EXISTS printers (id TEXT PRIMARY KEY, name TEXT NOT NULL, ip TEXT NOT NULL, camera TEXT NOT NULL)''')
-        conn.commit()
+    try:
+        with get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''CREATE TABLE IF NOT EXISTS printers (id TEXT PRIMARY KEY, name TEXT NOT NULL, ip TEXT NOT NULL, camera TEXT NOT NULL)''')
+            conn.commit()
+            print(f"Database initialized successfully at: {db_name}")
+            return True
+    except Exception as e:
+        print(f"Error initializing database: {e}")
+        return False
 
 # Добавление нового принтера
 def add_printer(id, name, ip, camera):
     try:
         with get_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute('''INSERT INTO printers (id, name, ip, camera) VALUES (?, ?, ?, ?, ?)''', (id, name, ip, camera))
+            cursor.execute('''INSERT INTO printers (id, name, ip, camera) VALUES (?, ?, ?, ?)''', (id, name, ip, camera))
             conn.commit()
-            # logger.info(f"Added printer: ID={id}, Name={name}")
+            print(f"Successfully added printer: ID={id}, Name={name}, IP={ip}, Camera={camera}")
             return True
-    except sqlite3.IntegrityError:
-        # logger.error(f"Printer with ID {id} already exists")
+    except sqlite3.IntegrityError as e:
+        print(f"Error: Printer with ID {id} already exists")
+        return False
+    except Exception as e:
+        print(f"Error adding printer: {e}")
         return False
 
 # Получение данных принтера по ID
@@ -81,8 +115,11 @@ def get_all_printers():
         with get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT * FROM printers")
-            return [dict(row) for row in cursor.fetchall()]
+            printers = [dict(row) for row in cursor.fetchall()]
+            print(f"Retrieved {len(printers)} printers from database")
+            return printers
     except Exception as e:
+        print(f"Error getting printers: {e}")
         return []
 
 def delete_printer(target_id):
